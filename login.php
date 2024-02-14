@@ -1,5 +1,4 @@
 <?php
-// database coneccteeeruh
 $host = 'localhost';
 $db   = 'your_database_name';
 $user = 'your_username';
@@ -14,47 +13,42 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-// checken of de form is gesubmit
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // de form data pakken
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Form data VALIDEREN
     if (!empty($username) && !empty($password)) {
         // prepare SQl queryals de user bestaat
         $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username LIMIT 1');
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 
-        // User data chappen
+
         $user = $stmt->fetch();
 
-        // Checken of de user bestaat en t wachtwoord correct is
         if ($user && password_verify($password, $user['password'])) {
             // session variables
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['user'] = $user;
 
-            // Redirect homepage
             header('Location: home.php');
             exit;
         } else {
-            // Error msg laten zien
+
             $error = 'Invalid username or password';
         }
     } else {
-        // Andere error msg
+
         $error = 'Please enter a username and password';
     }
 }
 
-// de header file include
-include 'header.php';
 ?>
 
-<!-- de login form laten zien -->
+
 <div class="login-container">
     <h2>Login</h2>
     <?php if (isset($error)): ?>
@@ -68,6 +62,3 @@ include 'header.php';
         <input type="submit" value="Login">
     </form>
 </div>
-
-<!-- FOoter includen duhhh -->
-<?php include 'footer.php'; ?>
