@@ -15,9 +15,9 @@ function changeBackground() {
   ]
   var randomImage = images[Math.floor(Math.random() * images.length)]
 
-  // Fade out the current background
+  
   $('body').fadeOut(1000, function() {
-    // Set the new background image and fade it in
+    
     $(this).css('background-image', 'url(' + randomImage + ')').fadeIn(1000)
   })
 }
