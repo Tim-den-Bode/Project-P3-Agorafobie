@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'your_database_name';
+$db   = 'AgaroFobie';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['loggedin'] = true;
             $_SESSION['user'] = $user;
 
-            header('Location: home.php');
+            header('Location: index.html');
             exit;
         } else {
 
@@ -54,11 +54,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (isset($error)): ?>
         <p><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
-    <form action="login.php" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Login">
-    </form>
 </div>
