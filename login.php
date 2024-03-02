@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     if (!empty($username) && !empty($password)) {
-        // prepare SQl queryals de user bestaat
+        
         $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username LIMIT 1');
         $stmt->bindParam(':username', $username);
         $stmt->execute();
