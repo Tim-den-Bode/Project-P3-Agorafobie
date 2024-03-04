@@ -4,51 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
-    <link rel="stylesheet" type="text/css" href="vragen.css">
+    <link rel="stylesheet" type="text/css" href="./css/vragen.css">
 </head>
 <body>
-    <h1>Agorafobie</h1>
+    <h1 id="nav-title">Vragenlijst</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#symptomen">Symptomen</a></li>
+            <li><a href="#oorzaken">Oorzaken</a></li>
+            <li><a href="inlog.html">logIn</a></li>
+        </ul>
+    </nav>
+
     <form id="questionnaire">
-        <label for="q1">Vraag 1:</label><br>
+        <label for="q1">Heb je ooit angstige of paniekachtige gevoelens ervaren bij het betreden van open ruimtes, zoals pleinen, parken of grote winkelcentra?:</label><br>
         <select id="q1" name="q1">
             <option value=""></option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">Altijd</option>
+            <option value="option2">Soms</option>
+            <option value="option3">Nooit</option>
         </select><br>
-        <label for="q2">Vraag 2:</label><br>
+
+        <label for="q2">Voel je je ongemakkelijk of angstig bij het verlaten van je huis of een vertrouwde omgeving?:</label><br>
         <select id="q2" name="q2">
             <option value=""></option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">Ja</option>
+            <option value="option2">Nee</option>
+            <option value="option3">Soms</option>
         </select><br>
-        <label for="q3">Vraag 3:</label><br>
+
+        <label for="q3">Zijn er bepaalde situaties of omstandigheden in open ruimtes die je vermijdt vanwege angstgevoelens?:</label><br>
         <select id="q3" name="q3">
             <option value=""></option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">Ja, heel vaak</option>
+            <option value="option2">Nee, nooit</option>
+            <option value="option3">Soms</option>
         </select><br>
-        <label for="q4">Vraag 4:</label><br>
+
+        <label for="q4">Ervaar je fysieke symptomen zoals hartkloppingen, zweten of ademhalingsproblemen wanneer je je in een open ruimte bevindt?</label><br>
         <select id="q4" name="q4">
             <option value=""></option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="option1">Ja, ik herken alle symptonen</option>
+            <option value="option2">Ik herken maar een paar symptonen</option>
+            <option value="option3">Nee, ik herken geen symptonen</option>
         </select><br>
-        <label for="q5">Vraag 5:</label><br>
+
+        <label for="q5">Maakt het een verschil of je alleen bent of vergezeld wordt door anderen in open ruimtes?:</label><br>
         <select id="q5" name="q5">
             <option value=""></option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-            <label for="q5">Vraag 6:</label><br>
+            <option value="option1">Ja</option>
+            <option value="option2">Nee</option>
             </select><br>
-            <label for="q6">Vraag 6:</label><br>
+            <label for="q6">Heb je herinneringen aan traumatische gebeurtenissen in open ruimtes die je angst kunnen vergroten?:</label><br>
+
             <select id="q6" name="q6">
                 <option value=""></option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-                <a href="vragen2.html" class="arrow-button"></a>
+                <option value="option1">Jawel</option>
+                <option value="option2">Nee</option>
+                <option value="option3">Jawel, maar de herinneringen zijn vaag</option>
+                
+               

@@ -18,7 +18,8 @@ body header {
     text-align: center;            
     padding: 20px;
     margin-bottom: 30px;
-    border-radius: 5px
+    border-radius: 5px;
+    border-bottom: 2px solid #ccc;
 }
 
 body nav {
@@ -53,7 +54,8 @@ body .hometext {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
     margin-bottom: 30px;
     color: #eee;
-    padding: 1rem
+    padding: 1rem;
+    border-bottom: 2px solid #ccc;
 }
 
 body strong {
