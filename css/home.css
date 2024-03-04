@@ -1,7 +1,6 @@
 body {
-    background-image: url(../img/453321.jpg);
+    background-image: url(../ditism.jpg);
     background-size: cover;
-    background-position: center center;
     font-family: Arial, -serif;
     max-width: 760px;
     margin: 0 auto;
@@ -10,7 +9,9 @@ body {
     padding: 20px;
     box-sizing: border-box;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif
+    
 }
+
 
 body header {
     color: thistle;
