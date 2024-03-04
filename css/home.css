@@ -9,7 +9,6 @@ body {
   padding: 20px;
   box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  /* Rest of your styles remain unchanged */
 }
 body header {
   color: thistle;
@@ -18,6 +17,7 @@ body header {
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 5px;
+  border-bottom: 2px solid #ccc;
 }
 body .container {
   max-width: 760px;
