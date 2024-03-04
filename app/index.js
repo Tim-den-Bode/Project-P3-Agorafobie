@@ -31,3 +31,7 @@ document.querySelector('input[type="submit"]').addEventListener('click', functio
     alert('Verkeerde gebruikersnaam of wachtwoord')
   }
 });
+
+function takeTest() {
+  window.location.href = 'vragen.html';
+}
