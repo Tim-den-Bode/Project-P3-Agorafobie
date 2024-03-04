@@ -1,104 +1,126 @@
 body {
+<<<<<<< HEAD
     background-image: url(../img/200%.jpg);
     background-size: cover;
     background-position: center center;
     font-family: Arial, -serif;
+=======
+  background-image: url(../ditism.jpg);
+  background-size: cover;
+  font-family: Arial, -serif;
+  max-width: 760px;
+  margin: 0 auto;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  header {
+    color: thistle;
+    background-color: #333;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+  }
+
+  .container {
+>>>>>>> c06e85616f1f073eb4dd11ff5c28b2c164e97337
     max-width: 760px;
     margin: 0 auto;
-    color: #333;
-    background-color: #f5f5f5;
     padding: 20px;
     box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  
-    header {
-      color: thistle;
-      background-color: #333;
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 5px;
-    }
-  
-    nav {
-      display: none;
-      background-color: #555;
-      padding: 10px;
-  
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-  
-        li {
-          display: inline;
-          margin-right: 10px;
-  
-          a {
-            color: #ccc;
-            text-decoration: none;
-  
-            &:hover {
-              color: #fff;
-            }
+    width: 100%;
+  }
+
+  nav,
+  .hometext {
+    width: 100%;
+    /* Other styles */
+  }
+
+  /* Rest of your styles remain unchanged */
+
+  nav {
+    display: none;
+    background-color: #555;
+    padding: 10px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline;
+        margin-right: 10px;
+
+        a {
+          color: #ccc;
+          text-decoration: none;
+
+          &:hover {
+            color: #fff;
           }
         }
       }
     }
-  
-    .hometext {
-      width: 100%;
-      background-color: #333;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      color: #eee;
-      padding: 1rem;
-    }
-  
-    strong {
-      color: #bb0000;
-    }
-  
-    button {
-      background-color: darkgreen;
-      font-size: 18px;
+  }
+
+  .hometext {
+    width: 100%;
+    background-color: #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    color: #333;
+    padding: 1rem;
+  }
+
+  strong {
+    color: #bb0000;
+  }
+
+  button {
+    background-color: darkgreen;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+
+    &:hover {
       color: #fff;
-      cursor: pointer;
-      padding: 1rem;
-      width: 100%;
-  
-      &:hover {
-        color: #fff;
-      }
-    }
-  
-    @media (min-width: 760px) {
-      nav {
-        display: block;
-      }
-  
-      .kolom:nth-child(2) {
-        margin-left: 3%;
-      }
-  
-      header {
-        width: 100%;
-      }
-  
-      nav ul li a {
-        color: thistle;
-      }
-  
-      nav ul li a:hover {
-        color: #f86700;
-      }
-    }
-  
-    #button {
-      color: thistle;
-  
-      &:hover {
-        color: #fff;
-      }
     }
   }
+
+  @media (min-width: 760px) {
+    nav {
+      display: block;
+    }
+
+    .kolom:nth-child(2) {
+      margin-left: 3%;
+    }
+
+    header {
+      width: 100%;
+    }
+
+    nav ul li a {
+      color: thistle;
+    }
+
+    nav ul li a:hover {
+      color: #f86700;
+    }
+  }
+
+  #button {
+    color: thistle;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
