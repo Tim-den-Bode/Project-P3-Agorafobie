@@ -69,10 +69,9 @@ body {
 }
 
 body {
-  background-image: url(../img/200%.jpg);
+  background-image: url(../img/ditism.jpg);
   background-size: cover;
-  background-position: center center;
-  font-family: Arial, -serif;
+  font-family: Arial, serif;
   max-width: 760px;
   margin: 0 auto;
   color: #333;
