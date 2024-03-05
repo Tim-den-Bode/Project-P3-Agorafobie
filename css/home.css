@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-body {
-  background-image: url(../img/ditism.jpg);
-=======
 #bg-container {
   position: fixed;
   inset: 0;
@@ -25,8 +21,7 @@ body {
 }
 
 body {
-  background-image: url(../ditism.jpg);
->>>>>>> 5aa960fa9eec9aed41a347523d327a1cceb5e0a0
+  background-image: url(../img/ditism.jpg);
   background-size: cover;
   font-family: Arial, -serif;
   max-width: 760px;
@@ -36,13 +31,9 @@ body {
   padding: 20px;
   box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-<<<<<<< HEAD
 }
 body * {
   box-sizing: border-box;
-=======
-  /* Rest of your styles remain unchanged */
->>>>>>> 5aa960fa9eec9aed41a347523d327a1cceb5e0a0
 }
 body header {
   color: thistle;
@@ -52,21 +43,6 @@ body header {
   margin-bottom: 30px;
   border-radius: 5px;
 }
-<<<<<<< HEAD
-=======
-body .container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
-}
-body nav,
-body .hometext {
-  width: 100%;
-  /* Other styles */
-}
->>>>>>> 5aa960fa9eec9aed41a347523d327a1cceb5e0a0
 body nav {
   display: none;
   background-color: #555;
@@ -124,11 +100,7 @@ body button:hover {
     color: thistle;
   }
   body nav ul li a:hover {
-<<<<<<< HEAD
     color: #ffffff;
-=======
-    color: #f86700;
->>>>>>> 5aa960fa9eec9aed41a347523d327a1cceb5e0a0
   }
 }
 body #button {
