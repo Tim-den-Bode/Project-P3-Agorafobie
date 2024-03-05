@@ -1,1 +1,91 @@
-body{background-image:url(../ditism.jpg);background-size:cover;font-family:Arial,-serif;max-width:760px;margin:0 auto;color:#333;background-color:#f5f5f5;padding:20px;box-sizing:border-box;font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif}body header{color:thistle;background-color:#333;text-align:center;padding:20px;margin-bottom:30px;border-radius:5px}body .container{max-width:760px;margin:0 auto;padding:20px;box-sizing:border-box;width:100%}body nav,body .hometext{width:100%}body nav{display:none;background-color:#555;padding:10px}body nav ul{list-style-type:none;padding:0;margin:0}body nav ul li{display:inline;margin-right:10px}body nav ul li a{color:#ccc;text-decoration:none}body nav ul li a:hover{color:#fff}body .hometext{width:100%;background-color:#eee;box-shadow:0 2px 4px rgba(0,0,0,.1);margin-bottom:30px;color:#333;padding:1rem}body strong{color:#b00}body button{background-color:#006400;font-size:18px;color:#fff;cursor:pointer;padding:1rem;width:100%}body button:hover{color:#fff}@media(min-width: 760px){body nav{display:block}body .kolom:nth-child(2){margin-left:3%}body header{width:100%}body nav ul li a{color:thistle}body nav ul li a:hover{color:#f86700}}body #button{color:thistle}body #button:hover{color:#fff}/*# sourceMappingURL=home.css.map */
+body {
+  background-image: url(../img/ditism.jpg);
+  background-size: cover;
+  font-family: Arial, -serif;
+  max-width: 760px;
+  margin: 0 auto;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+body * {
+  box-sizing: border-box;
+}
+body header {
+  color: thistle;
+  background-color: #333;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+body nav {
+  display: none;
+  background-color: #555;
+  padding: 10px;
+}
+body nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+body nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+body nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+body nav ul li a:hover {
+  color: #fff;
+}
+body .hometext {
+  width: 100%;
+  background-color: #eee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  color: #333;
+  padding: 1rem;
+}
+body strong {
+  color: #bb0000;
+}
+body button {
+  background-color: darkgreen;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+}
+body button:hover {
+  color: #fff;
+}
+@media (min-width: 760px) {
+  body nav {
+    display: block;
+  }
+  body .kolom:nth-child(2) {
+    margin-left: 3%;
+  }
+  body header {
+    width: 100%;
+  }
+  body nav ul li a {
+    color: thistle;
+  }
+  body nav ul li a:hover {
+    color: #ffffff;
+  }
+}
+body #button {
+  color: thistle;
+}
+body #button:hover {
+  color: #fff;
+}
+
+/*# sourceMappingURL=home.css.map */
