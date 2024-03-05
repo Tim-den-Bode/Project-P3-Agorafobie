@@ -35,3 +35,4 @@ document.querySelector('input[type="submit"]').addEventListener('click', functio
 function takeTest() {
   window.location.href = 'vragen.html';
 }
+
