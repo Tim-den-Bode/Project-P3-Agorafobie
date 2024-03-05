@@ -6,31 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/home.css">
-    <script src="app/index.js"></script>
 </head>-
 
 <body>
+    <div id="bg-container">
+        <img src="img/ditism.jpg" alt="">
+        <img src="img/schoolp123.jpg" alt="">
+        <img src="img/martjiachte1.jpg" alt="">
+    </div>
     <header>
         <h1>Home</h1>
     </header>
     <div class="container">
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Symptomen.html">Informatie</a></li>
-            <li><a href="inlog.html">Log In</a></li>
-        </ul>
-    </nav>
-    <div class="hometext">
-        <h2>Welkom bij de homepagina</h2>
-        <p>Klik hieronder om de test te doen.</p>
-        <button onclick="takeTest()" id="button">Neem Test</button>
-        <P><strong>Waarschuwing: </strong>Praat altijd met een echte dokter voor dat je actie onderneemt.</P>
-        <footer> 
-            <p>&copy; 2023 FobieHulp</p>
-        </footer>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Symptomen.html">Informatie</a></li>
+                <li><a href="inlog.html">Log In</a></li>
+            </ul>
+        </nav>
+        <div class="hometext">
+            <h2>Welkom bij de homepagina</h2>
+            <p>Klik hieronder om de test te doen.</p>
+            <button onclick="takeTest()" id="button">Neem Test</button>
+            <P><strong>Waarschuwing: </strong>Praat altijd met een echte dokter voor dat je actie onderneemt.</P>
+            <footer> 
+                <p>&copy; 2023 FobieHulp</p>
+            </footer>
+        </div>
     </div>
-</div>
+    <script src="JS/index.js"></script>
+    <script type="module" src="JS/bg-fade.js"></script>
 </body>
 
 </html>
