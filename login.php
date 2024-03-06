@@ -1,57 +1,63 @@
 <?php
-$host = 'localhost';
-$db   = 'AgaroFobie';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+$servername = "agarofobie";
+$username = "root";
+$password = "";
+$dbname = "AgaroFobie";
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$opt = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-$pdo = new PDO($dsn, $user, $pass, $opt);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+<?php
+require_once 'login.php';
 
+// Initialize variables
+$username = "";
+$password = "";
+$err = "";
+
+// If form is submitted
+if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if (!empty($username) && !empty($password)) {
-        
-        $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username LIMIT 1');
-        $stmt->bindParam(':username', $username);
-        $stmt->execute();
+    // Validate credentials
+    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = mysqli_query($conn, $query);
 
-
-        $user = $stmt->fetch();
-
-        if ($user && password_verify($password, $user['password'])) {
-            // session variables
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['user'] = $user;
-
-            header('Location: index.html');
-            exit;
-        } else {
-
-            $error = 'Invalid username or password';
-        }
+    if (mysqli_num_rows($result) == 1) {
+        header('location: Home.html');
+        exit;
     } else {
-
-        $error = 'Please enter a username and password';
+        $err = "Invalid username or password";
     }
 }
-
 ?>
 
-
-<div class="login-container">
-    <h2>Login</h2>
-    <?php if (isset($error)): ?>
-        <p><?php echo htmlspecialchars($error); ?></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="" method="post">
+        <label>Username:</label><br>
+        <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>"><br>
+        <label>Password:</label><br>
+        <input type="password" name="password" value="<?php echo htmlspecialchars($password); ?>"><br>
+        <button type="submit" name="login">Login</button>
+    </form>
+    <?php if (!empty($err)): ?>
+        <p><?php echo htmlspecialchars($err); ?></p>
     <?php endif; ?>
-</div>
+</body>
+</html>
+
