@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   background-image: url(../ditism.jpg);
   background-size: cover;
@@ -97,5 +98,22 @@ body #button {
 body #button:hover {
   color: #fff;
 }
+=======
+/* Error: expected "{".
+ *   ,
+ * 3 |     background-image: url(../img/200%.jpg);
+ *   |                                           ^
+ *   '
+ *   scss\home.scss 3:43  root stylesheet */
+>>>>>>> d286b024a69c3d35b374e06a4d4134dd346b0abc
 
-/*# sourceMappingURL=home.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a   \2577 \a 3 \2502      background-image: url(../img/200%.jpg);\d\a   \2502                                            ^\a   \2575 \a   scss\\home.scss 3:43  root stylesheet';
+}
