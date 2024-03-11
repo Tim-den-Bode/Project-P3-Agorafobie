@@ -60,4 +60,3 @@ if (isset($_POST['login'])) {
     <?php endif; ?>
 </body>
 </html>
-
