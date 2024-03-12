@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Question</title>
+    <link rel="stylesheet" type="text/css" href="css/vragen.css">
 </head>
+
 <body>
-    
+    <div id="bg-container">
+        <img src="img/ditism.jpg" alt="">
+        <img src="img/schoolp123.jpg" alt="">
+        <img src="img/martjiachte1.jpg" alt="">
+    </div>
+    <h1 id="nav-title">Vragenlijst</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Symptomen.html">Informatie</a></li>
+            <li><a href="inlog.html">logIn</a></li>
+        </ul>
+    </nav>
+
+    <form id="questionnaire">
+        <label for="q7">Heb je ooit paniekerige gevoelens ervaren in situaties waarin je denkt dat ontsnappen onmogelijk is en niemand kon helpen?</label><br>
+        <select id="q7" name="q7">
+            <option value=""></option>
+            <option value="option1">heel vaak</option>
+            <option value="option2">Soms</option>
+            <option value="option3">Nooit</option>
+        </select><br>
+
+        <label for="q8">Voel je je vaak ongemakkelijk of angstig in drukke openbare plaatsen zoals winkelcentra, treinstations of drukke straten?</label><br>
+        <select id="q8" name="q8">
+            <option value=""></option>
+            <option value="option1">altjd</opti9on>
+            <option value="option2">Nooit</option>
+            <option value="option3">Soms</option>
+        </select><br>
+
+        <label for="q9">Vermijd je bepaalde situaties of plaatsen vanwege angst voor een paniekaanval of het gevoel de controle te verliezen?</label><br>
+        <select id="q9" name="q9">
+            <option value=""></option>
+            <option value="option1">Ja, heel vaak</option>
+            <option value="option2">Nee, nooit</option>
+            <option value="option3">Soms</option>
+        </select><br>
+
+        <label for="q10">Heeft agorafobie invloed op je dagelijkse activiteiten, zoals werk, sociale interacties of vrijetijdsbesteding?</label><br> 
+        <select id="q10" name="q10">
+            <option value=""></option>
+            <option value="option1">Ja, het heeft veel invloed op mijn leven</option>
+            <option value="option2">Ik heb er veel last van maar probeer het te negeren</option>
+            <option value="option3">Nee, ik heb er geen last van</option>
+        </select><br>
+
+        <label for="q11">Heb je ooit situaties vermeden waarvan je weet dat ze veilig zijn, maar waarin je toch angstig wordt vanwege de omgeving?</label><br>
+        <select id="q11" name="q11">
+            <option value=""></option>
+            <option value="option1">Ja</option>
+            <option value="option2">Nee</option>
+        </select><br>
+
+        <label for="q12">Ervaar je lichamelijke symptomen zoals hartkloppingen, trillen of duizeligheid in situaties die triggers kunnen veroorzaken?</label><br>
+        <select id="q12" name="q12">
+            <option value=""></option>
+            <option value="option1">Ja, heel erg</option>
+            <option value="option2">Nee, zowat niet</option>
+            <option value="option3">Jawel, maar heel licht</option>
+        </select>
+
+            <button onclick="previousPage()" type="button" id="button">Previous Questions</button>
+            <button onclick="donePage()" type="button" id="button">Finished</button>
+
+    </form>
+    </select>
+    </form>
+    <script src="JS/vragen.js"></script>
+    <script type="module" src="JS/bg-fade.js"></script>
 </body>
+
 </html>
