@@ -111,6 +111,17 @@ body nav ul li a {
 body nav ul li a:hover {
   color: #fff;
 }
+body button {
+  background-color: darkgreen;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  padding: 1rem;
+  width: 100%;
+}
+body button:hover {
+  color: #fff;
+}
 body .kolom {
   float: left;
   width: 100%;

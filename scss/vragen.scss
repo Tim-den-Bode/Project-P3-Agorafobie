@@ -104,6 +104,19 @@ body {
     }
   }
 
+  button {
+    background-color: darkgreen;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
   .kolom {
     float: left;
     width: 100%;
