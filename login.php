@@ -16,17 +16,16 @@ if ($conn->connect_error) {
 <?php
 require_once 'login.php';
 
-// Initialize variables
+
 $username = "";
 $password = "";
 $err = "";
 
-// If form is submitted
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Validate credentials
+ 
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
     $result = mysqli_query($conn, $query);
 

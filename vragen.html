@@ -14,11 +14,11 @@
         <img src="img/schoolp123.jpg" alt="">
         <img src="img/martjiachte1.jpg" alt="">
     </div>
-    <h1 id="nav-title">Vragenlijst</h1>
+    <h1 id="nav-title">questionnaire</h1>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="Symptomen.html">Informatie</a></li>
+            <li><a href="Symptomen.html">Information</a></li>
             <li><a href="inlog.html">log In</a></li>
         </ul>
     </nav>
@@ -71,13 +71,58 @@
 <option value="option3">Yes, but the memories are vague</option>
 </select>
 
-            <button onclick="nextPage()" type="button" id="button">Next Questions</button>
+<label for="q7">Have you ever experienced panicky feelings in situations where you think escape is impossible and no one could help?</label><br>
+<select id="q7" name="q7">
+    <option value=""></option>
+    <option value="option1">Very often</option>
+    <option value="option2">Sometimes</option>
+    <option value="option3">Never</option>
+</select><br>
 
+<label for="q8">Do you often feel uncomfortable or anxious in crowded public places such as shopping malls, train stations, or busy streets?</label><br>
+<select id="q8" name="q8">
+    <option value=""></option>
+    <option value="option1">Always</option>
+    <option value="option2">Never</option>
+    <option value="option3">Sometimes</option>
+</select><br>
+
+<label for="q9">Do you avoid certain situations or places due to fear of a panic attack or feeling of losing control?</label><br>
+<select id="q9" name="q9">
+    <option value=""></option>
+    <option value="option1">Yes, very often</option>
+    <option value="option2">No, never</option>
+    <option value="option3">Sometimes</option>
+</select><br>
+
+<label for="q10">Does agoraphobia affect your daily activities, such as work, social interactions, or leisure activities?</label><br>
+<select id="q10" name="q10">
+    <option value=""></option>
+    <option value="option1">Yes, it greatly affects my life</option>
+    <option value="option2">I struggle with it a lot but try to ignore it</option>
+    <option value="option3">No, it doesn't affect me</option>
+</select><br>
+
+<label for="q11">Have you ever avoided situations that you know are safe, but still feel anxious because of the environment?</label><br>
+<select id="q11" name="q11">
+    <option value=""></option>
+    <option value="option1">Yes</option>
+    <option value="option2">No</option>
+</select><br>
+
+<label for="q12">Do you experience physical symptoms such as palpitations, trembling, or dizziness in situations that could trigger them?</label><br>
+<select id="q12" name="q12">
+    <option value=""></option>
+    <option value="option1">Yes, very much</option>
+    <option value="option2">No, hardly</option>
+    <option value="option3">Yes, but very lightly</option>
+</select>
+
+            <button onclick="donePage()" type="button" id="button">Finished</button>
     </form>
     </select>
     </form>
     <script src="JS/vragen.js"></script>
     <script type="module" src="JS/bg-fade.js"></script>
 </body>
-
 </html>
