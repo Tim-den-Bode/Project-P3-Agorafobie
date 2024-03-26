@@ -13,6 +13,6 @@ document.querySelector('input[type="submit"]').addEventListener('click', functio
 });
 
 function takeTest() {
-  window.location.href = 'vragen.html';
+  window.location.href = 'vragen.php';
 }
 
