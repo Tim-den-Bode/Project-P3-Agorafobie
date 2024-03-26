@@ -11,3 +11,5 @@ CREATE TABLE IF NOT EXISTS `users` (
     `password` varchar(255) NOT NULL,
     PRIMARY KEY (`id`)
 );
+
+insert into users  (name,email, password) values ('yank','cool', 'dani');

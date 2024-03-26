@@ -1,40 +1,23 @@
 <?php
-$servername = "agarofobie";
-$username = "root";
-$password = "";
-$dbname = "AgaroFobie";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once 'PHP/Lib/Database.php';
+$db = new Database();
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (isset( $_POST['username'] )) {
+    
+$db->query("SELECT * FROM users WHERE name=:username AND password=:password");
+$db->bind(':username', $_POST['username']);
+$db->bind(':password', $_POST['password']);
+
+// only first result instead of all. Use resultSet for all.
+$result = $db->single();
+
+if (isset($result->name)) {
+    header('refresh:0, url = index.html');
+    exit;
+} else {
+    $err = "Invalid username or password";
 }
-?>
-
-<?php
-require_once 'login.php';
-
-
-$username = "";
-$password = "";
-$err = "";
-
-if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
- 
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $query);
-
-    if (mysqli_num_rows($result) == 1) {
-        header('location: Home.html');
-        exit;
-    } else {
-        $err = "Invalid username or password";
-    }
 }
 ?>
 
@@ -43,19 +26,31 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Agoraphobia User Login</title>
+    <link rel="stylesheet" type="text/css" href="css/Inlog.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/Inlog.js"></script>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="" method="post">
-        <label>Username:</label><br>
-        <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>"><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" value="<?php echo htmlspecialchars($password); ?>"><br>
-        <button type="submit" name="login">Login</button>
-    </form>
-    <?php if (!empty($err)): ?>
-        <p><?php echo htmlspecialchars($err); ?></p>
-    <?php endif; ?>
+    <div id="bg-container">
+        <img src="img/ditism.jpg" alt="">
+        <img src="img/schoolp123.jpg" alt="">
+        <img src="img/martjiachte1.jpg" alt="">
+    </div>
+    <div class="login-container">
+        <h1>Welcome to PhobiaHelp</h1>
+        <p>Please log in to access your account and get the results of your test.</p>
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit">
+        </form>
+        <footer class="footer">
+            <p>&copy; 2023 PhobiaHelp</p>
+        </footer>
+    </div>
 </body>
 </html>
