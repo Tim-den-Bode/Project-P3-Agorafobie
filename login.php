@@ -13,6 +13,8 @@ $db->bind(':password', $_POST['password']);
 $result = $db->single();
 
 if (isset($result->name)) {
+    session_start();
+    $_SESSION['user'] = $result->name;
     header('refresh:0, url = index.html');
     exit;
 } else {

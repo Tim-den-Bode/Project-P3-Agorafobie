@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +23,8 @@
     <div class="container">
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="Symptomen.html">Information</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="Symptomen.php">Information</a></li>
                 <li><a href="login.php">Log In</a></li>
             </ul>
         </nav>
