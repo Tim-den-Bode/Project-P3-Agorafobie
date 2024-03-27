@@ -21,8 +21,8 @@
     <h1 id="nav-title">questionnaire</h1>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Symptomen.html">Information</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="Symptomen.php">Information</a></li>
             <li><a href="login.php">log In</a></li>
         </ul>
     </nav>
