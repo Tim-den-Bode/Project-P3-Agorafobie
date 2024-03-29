@@ -2,35 +2,46 @@
 
 require_once 'PHP/LIB/Database.php';
 
-if (isset($_POST['name'])) {
+// var_dump($_POST);
 
+if (isset($_POST['username'])) {
+
+    // setup database connection
     $db = new Database();
 
+    // setup query
     $query = "SELECT * FROM users WHERE name=:name";
     $params = [
-        'name' => $_POST['name']
+        'name' => $_POST['username']
     ];
-
+    
+    // prepare query witht parameters (doesn't send it yet)
     $result = $db->query($query, $params);
 
-    if ($result->rowCount() > 0) {
-        $user = $db->fetchColumn($result);
-        $hashedPassword = $user->password;
+    // execute query and check immediately if the query has any errors
+    if (!$result->execute()) {
+        echo 'Error: Query execution failed.';
+        exit;
+    }
 
+    // fetch the data of the successful query execution
+    $user = $result->fetch();
+    
+    // check if there is any data
+    if ($user) {
+        $hashedPassword = $user['password'];
+
+        // compare hashed passwords
         if (password_verify($_POST['password'], $hashedPassword)) {
             // Initialize the `$_SESSION` variable
             session_start();
             $_SESSION['user'] = $user->name;
-
-            // Debugging code
-            echo "<pre>";
-            print_r($_SESSION);
-            echo "</pre>";
-
             header('Location: user.php');
             exit;
         } else {
-            echo "Invalid password";
+            // change this echo too 'Invalid username'.
+            // malicious users can POST the database with wrong passwords to see if certain usernames exist in the database
+            echo "Invalid password"; 
         }
     } else {
         echo "Invalid username";
