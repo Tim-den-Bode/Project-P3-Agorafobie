@@ -1,55 +1,54 @@
 <?php
 
-// Check if the user is logged in
-session_start();
-
-if (!isset($_SESSION['user'])) {
-    // User is not logged in
-    header('Location: login.php');
-    exit;
-}
-
-// Get the user's name from the session
-$user = $_SESSION['user'];
+// Debugging code
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>User Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agoraphobia User Page</title>
+    <link rel="stylesheet" type="text/css" href="css/user.css">
 </head>
 
 <body>
-
-    <h1>Welcome,
-        <?php echo $user; ?>!
-    </h1>
-
-    <p>Here are your test results:</p>
-
-    <table>
-        <tr>
-            <th>Test</th>
-            <th>Score</th>
-        </tr>
-        <tr>
-            <td>Test 1</td>
-            <td>80%</td>
-        </tr>
-        <tr>
-            <td>Test 2</td>
-            <td>90%</td>
-        </tr>
-        <tr>
-            <td>Test 3</td>
-            <td>70%</td>
-        </tr>
-    </table>
-
-    <p><a href="PHP/LIB/logout.php">Log out</a></p>
-
+    <div class="user-container">
+        <h1>Welcome,
+            <?php echo $_SESSION['user']; ?>
+        </h1>
+        <p>Here are your test results:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test 1</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>Test 2</td>
+                    <td>90%</td>
+                </tr>
+                <tr>
+                    <td>Test 3</td>
+                    <td>70%</td>
+                </tr>
+            </tbody>
+        </table>
+        <footer class="footer">
+            <p>&copy; 2023 PhobiaHelp</p>
+        </footer>
+    </div>
 </body>
 
 </html>

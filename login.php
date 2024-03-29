@@ -2,13 +2,13 @@
 
 require_once 'PHP/LIB/Database.php';
 
-if (isset($_POST['username'])) {
+if (isset($_POST['name'])) {
 
     $db = new Database();
 
     $query = "SELECT * FROM users WHERE name=:name";
     $params = [
-        'name' => $_POST['username']
+        'name' => $_POST['name']
     ];
 
     $result = $db->query($query, $params);
@@ -18,8 +18,15 @@ if (isset($_POST['username'])) {
         $hashedPassword = $user->password;
 
         if (password_verify($_POST['password'], $hashedPassword)) {
+            // Initialize the `$_SESSION` variable
             session_start();
             $_SESSION['user'] = $user->name;
+
+            // Debugging code
+            echo "<pre>";
+            print_r($_SESSION);
+            echo "</pre>";
+
             header('Location: user.php');
             exit;
         } else {
@@ -29,6 +36,7 @@ if (isset($_POST['username'])) {
         echo "Invalid username";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +71,11 @@ if (isset($_POST['username'])) {
         </form>
         <?php if (isset($err)) {
             echo "<p>$err</p>";
+        } ?>
+        <?php if (isset($_SESSION)) {
+            echo "<pre>";
+            print_r($_SESSION);
+            echo "</pre>";
         } ?>
         <footer class="footer">
             <p>&copy; 2023 PhobiaHelp</p>
