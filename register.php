@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agoraphobia User Registration</title>
-    <link rel="stylesheet" type="text/css" href="css/Register.css"/>
+    <link rel="stylesheet" type="text/css" href="css/Register.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="JS/Register.js"></script>
 </head>
+
 <body>
     <div id="bg-container">
-        <img src="img/ditism.jpg" alt=""/>
-        <img src="img/schoolp123.jpg" alt=""/>
-        <img src="img/martjiachte1.jpg" alt=""/>
+        <img src="img/ditism.jpg" alt="" />
+        <img src="img/schoolp123.jpg" alt="" />
+        <img src="img/martjiachte1.jpg" alt="" />
     </div>
     <div class="register-container">
         <h1>Welcome to PhobiaHelp</h1>
         <p>Please sign up to create your account and access your personalized results.</p>
         <h2>Register</h2>
         <form action="PHP/Lib/register_handler.php" method="post">
-            <label for="username">Username:</label><br>
+            <label for="username">username:</label><br>
             <input type="text" id="username" name="username"><br>
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
@@ -34,4 +36,5 @@
         </footer>
     </div>
 </body>
+
 </html>
