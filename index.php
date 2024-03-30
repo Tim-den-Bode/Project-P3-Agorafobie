@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="Symptomen.php">Information</a></li>
-                <li><a href="login.php">Log In</a></li>
+                <li><a href="user.php">user page</a></li>
             </ul>
         </nav>
         <div class="hometext">

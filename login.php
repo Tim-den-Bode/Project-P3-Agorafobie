@@ -1,26 +1,53 @@
 <?php
 
-require_once 'PHP/Lib/Database.php';
-$db = new Database();
+require_once 'PHP/LIB/Database.php';
 
-if (isset ($_POST['username'])) {
+// var_dump($_POST);
 
-    $db->query("SELECT * FROM users WHERE name=:username AND password=:password");
-    $db->bind(':username', $_POST['username']);
-    $db->bind(':password', $_POST['password']);
+if (isset($_POST['username'])) {
 
-    // only first result instead of all. Use resultSet for all.
-    $result = $db->single();
+    // setup database connection
+    $db = new Database();
 
-    if (isset ($result->name)) {
-        session_start();
-        $_SESSION['user'] = $result->name;
-        header('refresh:0, url = index.html');
+    // setup query
+    $query = "SELECT * FROM users WHERE name=:name";
+    $params = [
+        'name' => $_POST['username']
+    ];
+    
+    // prepare query witht parameters (doesn't send it yet)
+    $result = $db->query($query, $params);
+
+    // execute query and check immediately if the query has any errors
+    if (!$result->execute()) {
+        echo 'Error: Query execution failed.';
         exit;
+    }
+
+    // fetch the data of the successful query execution
+    $user = $result->fetch();
+    
+    // check if there is any data
+    if ($user) {
+        $hashedPassword = $user['password'];
+
+        // compare hashed passwords
+        if (password_verify($_POST['password'], $hashedPassword)) {
+            // Initialize the `$_SESSION` variable
+            session_start();
+            $_SESSION['user'] = $user->name;
+            header('Location: user.php');
+            exit;
+        } else {
+            // change this echo too 'Invalid username'.
+            // malicious users can POST the database with wrong passwords to see if certain usernames exist in the database
+            echo "Invalid password"; 
+        }
     } else {
-        $err = "Invalid username or password";
+        echo "Invalid username";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -46,13 +73,21 @@ if (isset ($_POST['username'])) {
         <p>Please log in to access your account and get the results of your test.</p>
         <h2>Login</h2>
         <form action="login.php" method="post">
-            <label for="username">Username:</label><br>
+            <label for="username">username:</label><br>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password"><br>
             <input type="button" value="Register" onclick="location.href='register.php';" />
             <input type="submit" value='Log In' ;>
         </form>
+        <?php if (isset($err)) {
+            echo "<p>$err</p>";
+        } ?>
+        <?php if (isset($_SESSION)) {
+            echo "<pre>";
+            print_r($_SESSION);
+            echo "</pre>";
+        } ?>
         <footer class="footer">
             <p>&copy; 2023 PhobiaHelp</p>
         </footer>

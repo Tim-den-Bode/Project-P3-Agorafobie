@@ -19,7 +19,7 @@
         <p>Please sign up to create your account and access your personalized results.</p>
         <h2>Register</h2>
         <form action="PHP/Lib/register_handler.php" method="post">
-            <label for="username">Username:</label><br>
+            <label for="username">Name:</label><br>
             <input type="text" id="username" name="username"><br>
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>

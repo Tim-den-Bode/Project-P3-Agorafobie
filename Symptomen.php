@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +23,14 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="#symptoms">Symptoms</a></li>
-            <li><a href="login.php">Log In</a></li>
+            <li><a href="Symptomen.php">Information</a></li>
+            <li><a href="user.php">user page</a></li>
         </ul>
     </nav>
     <div class="kolom" id="symptoms">
         <h2 id="BestTitle">Symptoms</h2>
-        <p>Agoraphobia is an anxiety disorder in which people are afraid of being in public places or situations where it is
+        <p>Agoraphobia is an anxiety disorder in which people are afraid of being in public places or situations where
+            it is
             difficult to escape or get help. Here is a list of symptoms of agoraphobia:</p>
         <ul>
             <p>
@@ -51,7 +52,8 @@
     </div>
     <div class="kolom" id="causes">
         <h2 id="BestTitle">Causes</h2>
-        <p>The exact cause of agoraphobia is unknown, but there are several factors that can contribute to the development of
+        <p>The exact cause of agoraphobia is unknown, but there are several factors that can contribute to the
+            development of
             this disorder, including:</p>
         <ul>
             <p>
@@ -85,9 +87,11 @@
                 <li>Self-help strategies, such as breathing exercises or relaxation techniques.</li>
             </p>
         </ul>
-        <p><strong>Disclaimer:</strong> The treatment of agoraphobia depends on the severity and duration of the symptoms, as
+        <p><strong>Disclaimer:</strong> The treatment of agoraphobia depends on the severity and duration of the
+            symptoms, as
             well as the personal
-            preferences and circumstances of the person. Before starting a treatment, it is important to first speak with
+            preferences and circumstances of the person. Before starting a treatment, it is important to first speak
+            with
             your doctor or another
             healthcare professional to determine which treatment is best for you.
         </p>
