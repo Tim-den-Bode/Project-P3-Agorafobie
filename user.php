@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Debugging code
 echo "<pre>";
 print_r($_SESSION);
