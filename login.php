@@ -1,47 +1,47 @@
 <?php
 
+// Including the database file
 require_once 'PHP/LIB/Database.php';
 
-// var_dump($_POST);
-
+// Checking if the username has been set
 if (isset($_POST['username'])) {
 
-    // setup database connection
+    // Setting up the database connection
     $db = new Database();
 
-    // setup query
-    $query = "SELECT * FROM users WHERE name=:name";
+    // Preparing the query
+    $query = "SELECT * FROM users WHERE name = :name";
     $params = [
         'name' => $_POST['username']
     ];
-    
-    // prepare query witht parameters (doesn't send it yet)
+
+    // Preparing the query with the parameters
     $result = $db->query($query, $params);
 
-    // execute query and check immediately if the query has any errors
+    // Executing the query
     if (!$result->execute()) {
         echo 'Error: Query execution failed.';
         exit;
     }
 
-    // fetch the data of the successful query execution
+    // Fetching the user
     $user = $result->fetch();
-    
-    // check if there is any data
+
+    // Checking if the user exists
     if ($user) {
         $hashedPassword = $user['password'];
 
-        // compare hashed passwords
+        // Comparing the hashed passwords
         if (password_verify($_POST['password'], $hashedPassword)) {
-            // Initialize the `$_SESSION` variable
+            // Starting the session
             session_start();
             $_SESSION['user'] = $user->name;
+
+            // Redirecting the user
             header('Location: user.php');
             exit;
         } else {
-            // change this echo too 'Invalid username'.
-            // malicious users can POST the database with wrong passwords to see if certain usernames exist in the database
-            echo "Invalid password"; 
+            echo "Invalid password";
         }
     } else {
         echo "Invalid username";
@@ -49,7 +49,6 @@ if (isset($_POST['username'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +77,7 @@ if (isset($_POST['username'])) {
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password"><br>
             <input type="button" value="Register" onclick="location.href='register.php';" />
-            <input type="submit" value='Log In' ;>
+            <input type="submit" value="Log In">
         </form>
         <?php if (isset($err)) {
             echo "<p>$err</p>";

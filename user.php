@@ -1,10 +1,5 @@
 <?php
 session_start();
-// Debugging code
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
-
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +13,10 @@ echo "</pre>";
 </head>
 
 <body>
+    <!-- The `user-container` div is a placeholder for the user's actual data. -->
     <div class="user-container">
         <h1>Welcome,
-            <?php echo $_SESSION['user']; ?>
+            <?php echo htmlspecialchars($_SESSION['user']); ?>
         </h1>
         <p>Here are your test results:</p>
         <table>

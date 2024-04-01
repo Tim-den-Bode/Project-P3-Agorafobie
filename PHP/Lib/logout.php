@@ -1,9 +1,13 @@
 <?php
 
-// Unset the user's session
+// Starting the user's session
 session_start();
+
+// Unsetting the user's session
 unset($_SESSION['user']);
 
-// Redirect the user to the login page
+// Redirecting the user to the login page
 header('Location: ../login.php');
+
+// Terminating the script
 exit;
