@@ -23,7 +23,7 @@ session_start();
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="Symptomen.php">Information</a></li>
-            <li><a href="user.php">user page</a></li>
+            <li><a href="login.php">user page</a></li>
         </ul>
     </nav>
 
