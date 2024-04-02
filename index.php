@@ -1,5 +1,5 @@
 <?php
-session_start($_SESSION['user']);
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

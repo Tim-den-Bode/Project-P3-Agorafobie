@@ -7,7 +7,7 @@ session_start();
 session_destroy();
 
 // Redirecting the user to the login page
-header('Location: ../login.php');
+header('Location: /login.php');
 
 // Terminating the script
 exit;
