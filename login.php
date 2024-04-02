@@ -9,33 +9,29 @@ if (isset($_POST['username'])) {
     // Setting up the database connection
     $db = new Database();
 
-    // Preparing the query
-    $query = "SELECT * FROM users WHERE name = :name";
-    $params = [
-        'name' => $_POST['username']
-    ];
-
     // Preparing the query with the parameters
-    $result = $db->query($query, $params);
+    $db->query("SELECT * FROM users WHERE name = :name;");
+    $db->bind(':name',$_POST['username']);
+    $result = $db->single();
+    var_dump($result);
 
     // Executing the query
-    if (!$result->execute()) {
+    if (!isset($result->name)) {
         echo 'Error: Query execution failed.';
         exit;
     }
 
     // Fetching the user
-    $user = $result->fetch();
 
     // Checking if the user exists
-    if ($user) {
-        $hashedPassword = $user['password'];
+    if (isset($result->name)) {
+        $hashedPassword = $result->password;
 
         // Comparing the hashed passwords
         if (password_verify($_POST['password'], $hashedPassword)) {
             // Starting the session
             session_start();
-            $_SESSION['user'] = $user->name;
+            $_SESSION['user'] = $result->name;
 
             // Redirecting the user
             header('Location: user.php');

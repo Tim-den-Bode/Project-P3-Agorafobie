@@ -1,77 +1,69 @@
 <?php
+    class Database {
+        private $dbHost = "localhost";
+        private $dbUser = "root";
+        private $dbPass = "";
+        private $dbName = "agorafobie";
+        private $statement;
+        private $dbHandler;
+        private $error;
 
-class Database
-{
-    // Declaring private properties
-    private $host = 'localhost';
-    private $db = 'agorafobie';
-    private $user = 'root';
-    private $pass = '';
-    private $charset = 'utf8mb4';
-    private $dsn;
-    private $pdo;
-    private $stmt;
+        // Database connection construct.
+        public function __construct() {
+            $connect = 'mysql:host=' . $this->dbHost . 
+                       ';dbname=' . $this->dbName;
+            $options = array(
+                PDO::ATTR_PERSISTENT => true,
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false
+            );
 
-    // Constructing the Database class
-    public function __construct()
-    {
-        // Setting the DSN (Data Source Name)
-        $this->dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
-
-        // Trying to connect to the database
-        try {
-            $this->pdo = new PDO($this->dsn, $this->user, $this->pass);
-
-            // Disabling emulated prepared statements
-            $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-            // Setting the error mode to PDO::ERRMODE_EXCEPTION
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        } catch (\PDOException $e) {
-            // Displaying an error message if the connection fails
-            echo 'Error: Connection failed. Details: ' . $e->getMessage();
-            exit;
-        }
-    }
-
-    // Preparing a query for execution
-    public function query($query, $params = [])
-    {
-        // Preparing the query
-        $this->stmt = $this->pdo->prepare($query);
-
-        // Binding the parameters to the query
-        if (!empty($params)) {
-            foreach ($params as $key => $value) {
-                $this->stmt->bindValue("$key", $value);
+            try {
+                $this->dbHandler = new PDO($connect, $this->dbUser, $this->dbPass, $options);
+            } catch(PDOException $e) {
+                $this->error = $e->getMessage();
+                echo $this->error;
             }
         }
 
-        return $this->stmt;
+        // Query commands
+        public function query($sql) {
+            $this->statement = $this->dbHandler->prepare($sql);
+        }
+
+        public function bind($parameter, $value, $type=null) {
+            switch (is_null($type)) {
+                case is_int($value):
+                    $type = PDO::PARAM_INT;
+                    break;
+                case is_bool($value):
+                    $type = PDO::PARAM_BOOL;
+                    break;
+                case is_null($value):
+                    $type = PDO::PARAM_NULL;
+                    break;
+                default:
+                    $type = PDO::PARAM_STR;
+            }
+            $this->statement->bindValue($parameter, $value, $type);
+        }
+
+        public function execute() {
+            return $this->statement->execute();
+        }
+
+        // returns a array with objects.
+        public function resultSet() {
+            $this->execute();
+            return $this->statement->fetchALl(PDO::FETCH_OBJ);
+        }
+
+        public function single() {
+            $this->execute();
+            return $this->statement->fetch(PDO::FETCH_OBJ);
+        }
+
+        public function rowCount() {
+            return $this->statement->rowCount();
+        }
     }
-
-    // Executing a query
-    public function execute($result)
-    {
-        return $this->stmt->execute();
-    }
-
-    // Fetching a single column from the query result
-    public function fetchColumn($result)
-    {
-        // Executing the query
-        $this->execute($result);
-
-        // Fetching a single column from the query result
-        return $this->stmt->fetchColumn();
-    }
-
-    // Fetching the number of rows affected by the query
-    public function rowCount()
-    {
-        return $this->stmt->rowCount();
-    }
-}
-
-?>

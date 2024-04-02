@@ -4,7 +4,7 @@
 session_start();
 
 // Unsetting the user's session
-unset($_SESSION['user']);
+session_destroy();
 
 // Redirecting the user to the login page
 header('Location: ../login.php');

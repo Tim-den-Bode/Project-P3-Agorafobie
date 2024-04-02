@@ -31,14 +31,10 @@ if (isset($_POST['register_submit'])) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Preparing the query to check if the email address already exists
-    $query = "SELECT COUNT(*) FROM users WHERE email = :email";
-    $params = [
-        ':email' => $email
-    ];
 
     // Executing the query
-    $stmt = $db->query($query, $params);
-    $count = $stmt->fetchColumn();
+    $db->query("SELECT * FROM users WHERE email = :email;");
+    $count = $db->rowCount();
 
     // Checking if the email address already exists
     if ($count > 0) {
@@ -47,19 +43,15 @@ if (isset($_POST['register_submit'])) {
         exit;
     }
 
-    // Preparing the query to insert the user data
-    $query = "INSERT INTO users (name, email, password) VALUES (:username, :email, :password)";
-    $params = [
-        ':username' => $username,
-        ':email' => $email,
-        ':password' => $hashed_password
-    ];
-
     // Executing the query
-    $stmt = $db->query($query, $params);
+    $db->query("INSERT INTO users (name, email, password) VALUES (:username, :email, :password);");
+    $db->bind(':username',$username);
+    $db->bind(':email',$email);
+    $db->bind(':password',$password);
+    $result = $db->single();
 
     // Checking if the query was successful
-    if ($stmt->execute()) {
+    if (isset($result->name)) {
         // Redirecting the user to the login page if the registration was successful
         header('location: ../../login.php');
         exit;
