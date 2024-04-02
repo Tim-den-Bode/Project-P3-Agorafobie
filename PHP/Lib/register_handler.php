@@ -31,27 +31,30 @@ if (isset($_POST['register_submit'])) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Preparing the query to check if the email address already exists
+    $db->query("SELECT * FROM users WHERE email = :email;");
+    $db->bind(':email', $email);
 
     // Executing the query
-    $db->query("SELECT * FROM users WHERE email = :email;");
-    $count = $db->rowCount();
+    $db->execute();
 
     // Checking if the email address already exists
-    if ($count > 0) {
+    if ($db->rowCount() > 0) {
         // Displaying an error message if the email address already exists
         echo 'Error: Email address already exists.';
         exit;
     }
 
-    // Executing the query
+    // Preparing the query to insert the user into the database
     $db->query("INSERT INTO users (name, email, password) VALUES (:username, :email, :password);");
-    $db->bind(':username',$username);
-    $db->bind(':email',$email);
-    $db->bind(':password',$password);
-    $result = $db->single();
+    $db->bind(':username', $username);
+    $db->bind(':email', $email);
+    $db->bind(':password', $hashed_password);
+
+    // Executing the query
+    $result = $db->execute();
 
     // Checking if the query was successful
-    if (isset($result->name)) {
+    if ($result) {
         // Redirecting the user to the login page if the registration was successful
         header('location: ../../login.php');
         exit;

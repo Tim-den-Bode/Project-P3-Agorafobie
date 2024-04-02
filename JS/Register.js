@@ -1,14 +1,19 @@
 window.addEventListener("load", () => {
   const bgContainer = document.querySelector("#bg-container");
+  const backgrounds = bgContainer.children;
 
-  bgContainer.children[0].classList.add("active");
+  // Add the "active" class to the first child element
+  backgrounds[0].classList.add("active");
 
   let active = 0;
 
+  // Set an interval to change the background every 3 seconds
   setInterval(() => {
-    bgContainer.querySelector(".active").classList.remove("active");
-    bgContainer.children[active].classList.add("active");
+    // Remove the "active" class from the current active background
+    backgrounds[active].classList.remove("active");
 
-    active = active < bgContainer.children.length - 1 ? active + 1 : 0;
+    // Add the "active" class to the next background
+    active = active < backgrounds.length - 1 ? active + 1 : 0;
+    backgrounds[active].classList.add("active");
   }, 3000);
 });

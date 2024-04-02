@@ -3,11 +3,11 @@
 // Starting the user's session
 session_start();
 
-// Unsetting the user's session
+// Destroy the user's session
 session_destroy();
 
-// Redirecting the user to the login page
+// Redirect the user to the login page
 header('Location: /login.php');
 
-// Terminating the script
+// Terminate the script
 exit;

@@ -138,8 +138,7 @@ session_start();
     </form>
     </select>
     </form>
-    <script src="JS/vragen.js"></script>
-    <script type="module" src="JS/bg-fade.js"></script>
+    <script src="JS/bg-fade.js"></script>
 </body>
 
 </html>
